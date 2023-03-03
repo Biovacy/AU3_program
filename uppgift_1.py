@@ -49,15 +49,6 @@ for day in year:
             I = 0
         else: 
             I = 1.1 * I_0 * 0.7 ** (( 1 / math.sin(theta_sun) ) ** 0.678 )
-        
-        
-        # print(f"Theta_sun: {radian_to_degree(theta_sun)}, I real: {I}") 
-
-        # print(theta_sun)
-        # print( 1 / math.sin(theta_sun) )
-        # inside_pow = 1 / math.sin(theta_sun) ** 0.678
-        # I = math.pow(1.1 * I_0 * 0.7,  inside_pow.real)
-        I = I.real
 
         if (I < 0):
             I = 0
