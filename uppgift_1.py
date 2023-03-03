@@ -25,7 +25,7 @@ y_available = []
 dagen = 15
 
 # Beräkning
-year = [day for day in range(15, 16)]
+year = [day for day in range(dagen, dagen + 1)]
 
 for day in year:
 
