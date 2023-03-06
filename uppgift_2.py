@@ -17,6 +17,8 @@ epsilon = 0.15
 theta_panel = degree_to_radian(25)
 alpha_panel = degree_to_radian(150)
 
+min_effect = 120
+
 # Plottar
 x = []
 y_panel = []
@@ -58,17 +60,59 @@ def effekt_day_hour(day, hour):
 
     return P_real, P_perfect
 
-days = [i for i in range(0, 31)]
+
+# Soltimmar för helt år
+days = [i for i in range(1, 366)]
 
 sol = 0
+total_effekt = 0
 
 for day in days:
 
     for hour in np.arange(1, 24, 0.1):
 
-        # print(f"Dag. {day}, timme {hour}, effekt: {effekt_day_hour(day, hour)}")
+        total_effekt += effekt_day_hour(day, hour)[0]
 
-        if (effekt_day_hour(day, hour)[0] > 0):
+        if (effekt_day_hour(day, hour)[0] > min_effect):
             sol += 1
 
-print(f"Total sol {sol}, Soltimmar per dag { (23) / (sol / 10)}")
+faktor = (1872) / (sol / 10)
+print(f"Helt år: \tTotal sol {sol / 10}, \tFaktor {faktor}, \tTotal effekt (utan väder): {total_effekt / 10000}, \t(med väder) {(total_effekt / 10000) * faktor}")
+
+
+# Soltimmar för januari månad
+days = [i for i in range(1, 31 + 1)]
+
+sol = 0
+total_effekt = 0
+
+for day in days:
+
+    for hour in np.arange(1, 24, 0.1):
+        
+        total_effekt += effekt_day_hour(day, hour)[0]
+
+        if (effekt_day_hour(day, hour)[0] > min_effect):
+            sol += 1
+
+faktor = (23) / (sol / 10)
+print(f"Janurai månad: \tTotal sol {sol / 10}, \tFaktor {faktor}, \tTotal effekt (utan väder): {total_effekt / 10000}, \t(med väder) {(total_effekt / 10000) * faktor}")
+
+
+# Soltimmar för juni månad
+days = [i for i in range(151, 181 + 1)]
+
+sol = 0
+total_effekt = 0
+
+for day in days:
+
+    for hour in np.arange(1, 24, 0.1):
+
+        total_effekt += effekt_day_hour(day, hour)[0]
+
+        if (effekt_day_hour(day, hour)[0] > min_effect):
+            sol += 1
+
+faktor = (299) / (sol / 10)
+print(f"Juni månad: \tTotal sol {sol / 10}, \tFaktor {faktor}, \tTotal effekt (utan väder): {total_effekt / 10000}, \t(med väder) {(total_effekt / 10000) * faktor}")
