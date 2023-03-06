@@ -1,3 +1,8 @@
+"""
+Obs. Detta programmet räknar detta väldigt exakt, så detta kommer att ta ganska
+lång tid att beräkna.
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 import math
@@ -66,7 +71,7 @@ days = [i for i in range(1, 366)]
 max_theta_panel = 0
 max_effekt = 0
 
-for theta_panel in range(0, 360, 1):
+for theta_panel in np.arange(0, 90, 0.1):
 
     total_effekt = 0
     
@@ -75,6 +80,8 @@ for theta_panel in range(0, 360, 1):
         for hour in np.arange(1, 24, 0.1):
 
             total_effekt += effekt_day_hour(day, hour, degree_to_radian(theta_panel))[0]
+
+    print(f"theta_panel: {round(theta_panel, 2)}, \ttotal_effekt [kWh]: {round(total_effekt / 10000, 2)}")
 
     if (total_effekt > max_effekt):
         max_theta_panel = theta_panel
