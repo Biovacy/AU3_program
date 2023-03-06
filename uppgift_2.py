@@ -57,8 +57,8 @@ def effekt_day_hour(day, hour):
     P_perfect = epsilon * I * A
 
     # print(f"Dag: {day}, Timme: {hour}, effekt: {P_real}")
-
-    return P_real, P_perfect
+        
+    return P_real, P_perfect, I
 
 
 # Soltimmar för helt år
@@ -73,7 +73,7 @@ for day in days:
 
         total_effekt += effekt_day_hour(day, hour)[0]
 
-        if (effekt_day_hour(day, hour)[0] > min_effect):
+        if (effekt_day_hour(day, hour)[2] > min_effect):
             sol += 1
 
 faktor = (1872) / (sol / 10)
@@ -92,10 +92,10 @@ for day in days:
         
         total_effekt += effekt_day_hour(day, hour)[0]
 
-        if (effekt_day_hour(day, hour)[0] > min_effect):
+        if (effekt_day_hour(day, hour)[2] > min_effect):
             sol += 1
 
-faktor = (23) / (sol / 10)
+# Samma faktor används för hela året och januari månad, varför tas upp i rapporten.
 print(f"Janurai månad: \tTotal sol {sol / 10}, \tFaktor {faktor}, \tTotal effekt (utan väder): {total_effekt / 10000}, \t(med väder) {(total_effekt / 10000) * faktor}")
 
 
@@ -111,7 +111,7 @@ for day in days:
 
         total_effekt += effekt_day_hour(day, hour)[0]
 
-        if (effekt_day_hour(day, hour)[0] > min_effect):
+        if (effekt_day_hour(day, hour)[2] > min_effect):
             sol += 1
 
 faktor = (299) / (sol / 10)
