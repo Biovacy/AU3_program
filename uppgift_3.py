@@ -99,7 +99,6 @@ print(f"theta_panel (grader): {max_theta_panel}, max_effekt [kWh]: {max_effekt /
 
 # Plot the graph
 plt.plot(x_theta_panel, y_effect)
-plt.title("15 juni", fontsize=14)
 plt.xlabel(r'$\theta_{p}$', fontsize=14)
 plt.ylabel(r'$kWh$', fontsize=14)
 plt.tick_params(labelsize=14)
