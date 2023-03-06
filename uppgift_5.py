@@ -97,7 +97,7 @@ for day in days:
         if (effekt_day_hour(day, hour)[0] > min_effect):
             sol += 1
 
-faktor = (23) / (sol / 10)
+# Samma faktor används för hela året och januari månad, varför tas upp i rapporten.
 print(f"Janurai månad: \tTotal sol {sol / 10}, \tFaktor {faktor}, \tTotal effekt (utan väder): {total_effekt / 10000}, \t(med väder) {(total_effekt / 10000) * faktor}")
 
 
