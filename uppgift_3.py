@@ -71,6 +71,10 @@ days = [i for i in range(1, 366)]
 max_theta_panel = 0
 max_effekt = 0
 
+# Axies to make a graph
+y_effect = []
+x_theta_panel = []
+
 for theta_panel in np.arange(0, 90, 0.1):
 
     total_effekt = 0
@@ -83,9 +87,21 @@ for theta_panel in np.arange(0, 90, 0.1):
 
     print(f"theta_panel: {round(theta_panel, 2)}, \ttotal_effekt [kWh]: {round(total_effekt / 10000, 2)}")
 
+    y_effect.append(total_effekt / 10000)
+    x_theta_panel.append(theta_panel)
+
     if (total_effekt > max_effekt):
         max_theta_panel = theta_panel
         max_effekt = total_effekt
 
 print("MAX:")
 print(f"theta_panel (grader): {max_theta_panel}, max_effekt [kWh]: {max_effekt / 10000}")
+
+# Plot the graph
+plt.plot(x_theta_panel, y_effect)
+plt.title("15 juni", fontsize=14)
+plt.xlabel(r'$\theta_{p}$', fontsize=14)
+plt.ylabel(r'$kWh$', fontsize=14)
+plt.tick_params(labelsize=14)
+plt.legend(fontsize=14)
+plt.show()
