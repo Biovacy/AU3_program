@@ -12,7 +12,7 @@ def radian_to_degree(radian):
 # Konstanter
 I_0 = 1360  # Solarkonstanten
 fi = degree_to_radian(65.6)
-A = 30
+A = 50
 epsilon = 0.15 
 theta_panel = degree_to_radian(25)
 alpha_panel = degree_to_radian(150)

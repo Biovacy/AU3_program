@@ -12,7 +12,7 @@ def radian_to_degree(radian):
 # Konstanter
 I_0 = 1360  # Solarkonstanten
 fi = degree_to_radian(65.6)
-A = 30
+A = 50
 epsilon = 0.15 
 theta_panel = degree_to_radian(25)
 alpha_panel = degree_to_radian(150)
@@ -22,7 +22,7 @@ x = []
 y_panel = []
 y_available = []
 
-dagen = 15
+dagen = 166
 
 # Beräkning
 year = [day for day in range(dagen, dagen + 1)]
@@ -70,7 +70,7 @@ for day in year:
 
 plt.plot(x, y_available, "b--", label=f"Ideal panels upptagning")
 plt.plot(x, y_panel, "m-", label=f"Panelens upptagna energi")
-plt.title("15 januari", fontsize=14)
+plt.title("15 juni", fontsize=14)
 plt.xlabel(r'$t(h)$', fontsize=14)
 plt.ylabel(r'$P(W)$', fontsize=14)
 plt.tick_params(labelsize=14)
